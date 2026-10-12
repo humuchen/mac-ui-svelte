@@ -21,6 +21,8 @@ if (!window.matchMedia) {
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | null = null
   readonly rootMargin: string = ''
+  /** TS 6 lib.dom 新增必填属性 */
+  readonly scrollMargin: string = ''
   readonly thresholds: ReadonlyArray<number> = []
   disconnect(): void {}
   observe(): void {}

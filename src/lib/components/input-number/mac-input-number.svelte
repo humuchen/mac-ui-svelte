@@ -21,7 +21,7 @@
    * @event mac-blur - 失焦时触发。
    */
 
-  export type InputNumberVariant = 'default' | 'filled' | 'glass' | 'underline'
+  import type { InputNumberVariant } from './input-number-types'
 
   interface Props {
     /** 输入框的值。 */

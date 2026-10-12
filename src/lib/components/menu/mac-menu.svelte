@@ -14,25 +14,7 @@
    * @event mac-menu-select - 选中菜单项时触发。`detail: { value, item }`
    */
 
-  /** 菜单项（与 Lit 版 DropdownItem 结构一致）。 */
-  export interface MenuItem {
-    /** 唯一值。 */
-    value?: string
-    /** 标签文本（支持 HTML）。 */
-    label?: string
-    /** 图标（支持 HTML）。 */
-    icon?: string
-    /** 快捷键文本。 */
-    shortcut?: string
-    /** 是否禁用。 */
-    disabled?: boolean
-    /** 是否为危险操作。 */
-    danger?: boolean
-    /** 是否为分隔线。 */
-    divider?: boolean
-    /** 子菜单项。 */
-    children?: MenuItem[]
-  }
+  import type { MenuItem } from './menu-types'
 
   interface Props {
     /** 菜单项。 */

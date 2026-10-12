@@ -14,18 +14,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value }`
    */
 
-  export interface SelectOption {
-    value: string
-    label: string
-    disabled?: boolean
-    icon?: string
-    description?: string
-  }
-
-  export interface OptionGroup {
-    label: string
-    options: SelectOption[]
-  }
+  import type { OptionGroup, SelectOption } from './select-types'
 
   type RenderItem = SelectOption | { type: 'group'; label: string }
 

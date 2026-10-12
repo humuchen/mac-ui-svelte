@@ -28,8 +28,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value: string, date: Date | null }`
    */
 
-  export type PickerType = 'date' | 'datetime' | 'year' | 'quarter' | 'week'
-  export type PanelView = 'day' | 'month' | 'year'
+  import type { PanelView, PickerType } from './date-picker-types'
 
   interface Props {
     /** 选中的日期字符串（受控）。 */

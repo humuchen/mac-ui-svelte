@@ -19,14 +19,7 @@
    * @event mac-icons-reorder - 图标重新排序时触发。`detail: { layout }`
    */
 
-  export interface DesktopIconData {
-    id: string
-    label: string
-    color?: string
-    x?: number
-    y?: number
-    iconSrc?: string
-  }
+  import type { DesktopIconData } from './desktop-types'
 
   interface Props {
     /** 布局模式。 */

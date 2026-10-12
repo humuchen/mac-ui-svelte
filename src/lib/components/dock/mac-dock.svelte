@@ -19,13 +19,7 @@
    * @event mac-dock-item-reorder - 项目重新排序时触发。Detail: { itemId, targetItemId }
    */
 
-  export interface DockItemData {
-    id: string
-    label: string
-    color?: string
-    iconSrc?: string
-    running?: boolean
-  }
+  import type { DockItemData } from './dock-types'
 
   interface Props {
     /** 放大比例因子（1.0 = 不放大）。 */

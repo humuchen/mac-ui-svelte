@@ -17,16 +17,7 @@
    * @event mac-dropdown-select - 选中菜单项时触发。`detail: { value, item }`
    */
 
-  export interface DropdownItem {
-    value: string
-    label: string
-    icon?: string
-    disabled?: boolean
-    danger?: boolean
-    shortcut?: string
-    divider?: boolean
-    children?: DropdownItem[]
-  }
+  import type { DropdownItem } from './dropdown-types'
 
   interface Props {
     /** 菜单项。 */

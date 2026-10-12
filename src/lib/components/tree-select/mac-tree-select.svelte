@@ -14,12 +14,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value }`
    */
 
-  export interface TreeOption {
-    value: string
-    label: string
-    disabled?: boolean
-    children?: TreeOption[]
-  }
+  import type { TreeOption } from './tree-select-types'
 
   type CheckState = 'unchecked' | 'half-checked' | 'checked'
 
