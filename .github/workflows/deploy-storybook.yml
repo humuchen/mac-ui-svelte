@@ -8,6 +8,8 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  # configure-pages 的 enablement: true 需要管理权限，用来自动创建 Pages 站点
+  administration: write
 
 concurrency:
   group: 'pages'
@@ -42,6 +44,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Pages 站点不存在时自动创建，避免 GET /pages 404
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
