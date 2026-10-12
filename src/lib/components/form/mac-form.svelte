@@ -19,17 +19,7 @@
    * @event mac-submit - 表单提交时触发。Detail: { model }
    */
 
-  export interface FormRule {
-    required?: boolean
-    message?: string
-    trigger?: 'blur' | 'change' | 'input' | ('blur' | 'change' | 'input')[]
-    validator?: (value: unknown) => boolean | string | Promise<boolean | string>
-    min?: number
-    max?: number
-    len?: number
-    pattern?: RegExp
-    type?: 'string' | 'number' | 'boolean' | 'array' | 'email' | 'url' | 'date'
-  }
+  import type { FormRule } from './form-types'
 
   interface Props {
     /** 表单数据模型。 */

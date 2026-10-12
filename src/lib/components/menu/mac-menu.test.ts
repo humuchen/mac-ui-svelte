@@ -1,6 +1,7 @@
 import { describe, expect, it, vi, afterEach } from 'vitest'
 import { render, fireEvent, cleanup } from '@testing-library/svelte'
-import MacMenu, { type MenuItem } from './mac-menu.svelte'
+import MacMenu from './mac-menu.svelte'
+import type { MenuItem } from './menu-types'
 
 afterEach(cleanup)
 

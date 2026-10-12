@@ -11,10 +11,10 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "types": ["vitest/globals"],
-    "baseUrl": ".",
+    // baseUrl 已废弃（TS 5.10+/6.0 报 TS5101）；paths 自 TS 4.1 起可独立使用，相对 tsconfig 所在目录解析
     "paths": {
-      "$lib": ["src/lib/index.ts"],
-      "$lib/*": ["src/lib/*"]
+      "$lib": ["./src/lib/index.ts"],
+      "$lib/*": ["./src/lib/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.svelte"],

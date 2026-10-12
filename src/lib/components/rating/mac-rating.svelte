@@ -14,7 +14,7 @@
    * @event mac-rating-change - 评分值变化时触发。`detail: { value: number }`
    */
 
-  export type RatingIcon = 'star' | 'heart' | 'circle' | 'flame' | 'thumb'
+  import type { RatingIcon } from './rating-types'
 
   interface Props {
     /** 当前评分值（支持半星，如 3.5）。 */

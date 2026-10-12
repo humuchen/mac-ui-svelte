@@ -8,7 +8,7 @@
     type MacTheme,
   } from '../../internal/config.svelte'
   import { useFormContext } from './form-context.svelte'
-  import type { FormRule } from './mac-form.svelte'
+  import type { FormRule } from './form-types'
 
   /**
    * @tag mac-form-item

@@ -1,5 +1,5 @@
 import { getContext, setContext } from 'svelte'
-import type { FormRule } from './mac-form.svelte'
+import type { FormRule } from './form-types'
 
 /** MacForm 提供给子 FormItem 的上下文。 */
 export interface FormContext {

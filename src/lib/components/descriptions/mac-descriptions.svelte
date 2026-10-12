@@ -17,13 +17,7 @@
    * @slot extra - 头部额外内容（例如操作按钮）。
    */
 
-  export interface DescriptionItem {
-    label: string
-    value: string
-    span?: number
-    labelStyle?: string
-    contentStyle?: string
-  }
+  import type { DescriptionItem } from './descriptions-types'
 
   interface Props {
     /** 标签位置：'left' 在值旁边，'top' 在值上方。 */

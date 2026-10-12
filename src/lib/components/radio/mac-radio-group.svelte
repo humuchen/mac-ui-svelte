@@ -18,11 +18,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value: string }`
    */
 
-  export interface RadioOption {
-    value: string
-    label: string
-    disabled?: boolean
-  }
+  import type { RadioOption } from './radio-types'
 
   interface Props {
     /** 组的值（受控）。 */

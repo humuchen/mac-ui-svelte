@@ -16,13 +16,7 @@
    * @event mac-check - 节点勾选状态变化时触发。`detail: { key, checked, checkedKeys, halfCheckedKeys, node }`
    */
 
-  export interface TreeNodeData {
-    key: string
-    label: string
-    disabled?: boolean
-    children?: TreeNodeData[]
-    [key: string]: unknown
-  }
+  import type { TreeNodeData } from './tree-types'
 
   type CheckState = 'unchecked' | 'half-checked' | 'checked'
 

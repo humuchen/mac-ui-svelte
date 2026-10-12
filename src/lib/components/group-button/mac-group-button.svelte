@@ -14,11 +14,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value, item, index }`
    */
 
-  export interface GroupButtonItem {
-    value: string
-    label: string
-    disabled?: boolean
-  }
+  import type { GroupButtonItem } from './group-button-types'
 
   interface Props {
     /** 按钮项数组。 */

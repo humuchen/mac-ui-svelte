@@ -5,6 +5,7 @@
  * 转换规则：
  *   :host                          -> .mac-scope
  *   :host([attr])                  -> .mac-scope[attr]
+ *   :host(tag)                     -> tag.mac-scope
  *   :host *                        -> .mac-scope *
  *
  * 说明：Lit 中每个组件的 shadow root 都注入一份 token（:host 生效于宿主）；
@@ -30,6 +31,9 @@ function convert(text) {
   return text
     .replace(/:host\(\[data-theme='dark'\]\)/g, ".mac-scope[data-theme='dark']")
     .replace(/:host\(\[([^\]]+)\]\)/g, '.mac-scope[$1]')
+    // :host(tag)（宿主本身是 tag 元素，如 :host(button)）必须先于兜底规则转换，
+    // 否则会被 :host\b 规则产出非法选择器 .mac-scope(tag)，导致 lightningcss 构建报错
+    .replace(/:host\(([\w-]+)\)/g, '$1.mac-scope')
     .replace(/:host \*/g, '.mac-scope *')
     .replace(/:host\b/g, '.mac-scope')
 }

@@ -18,11 +18,7 @@
    * @event mac-change - 选中值变化时触发。`detail: { value: string[] }`
    */
 
-  export interface CheckboxOption {
-    value: string
-    label: string
-    disabled?: boolean
-  }
+  import type { CheckboxOption } from './checkbox-types'
 
   interface Props {
     /** 组的值（受控模式）。 */

@@ -33,7 +33,7 @@
 
     /* 交互元素：防止双击缩放、消除 300ms 延迟感 */
     .mac-scope[role='button'],
-    .mac-scope(button),
+    button.mac-scope,
     .mac-scope[data-touch] {
       touch-action: manipulation;
     }

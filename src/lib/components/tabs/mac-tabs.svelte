@@ -22,16 +22,7 @@
    * @event mac-tabs-add - 点击添加按钮时触发。
    */
 
-  export interface TabItem {
-    /** 唯一键 */
-    key: string
-    /** 标签文本 */
-    label: string
-    /** 标签是否禁用 */
-    disabled?: boolean
-    /** 标签是否可关闭 */
-    closable?: boolean
-  }
+  import type { TabItem } from './tabs-types'
 
   interface Props {
     /** 标签类型：line（下划线指示器）、card（卡片标签）、segment（分段控制器） */
