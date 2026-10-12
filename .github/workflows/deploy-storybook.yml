@@ -8,8 +8,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # configure-pages 的 enablement: true 需要管理权限，用来自动创建 Pages 站点
-  administration: write
 
 concurrency:
   group: 'pages'
@@ -44,9 +42,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Pages 站点不存在时自动创建，避免 GET /pages 404
-          enablement: true
+        # 注意：需在仓库 Settings → Pages → Source 选择 "GitHub Actions" 启用，
+        # 否则此步骤查询站点配置会 404。enablement: true 需 administration
+        # 权限，workflow 的 permissions 不支持该键，GITHUB_TOKEN 无法授予。
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
