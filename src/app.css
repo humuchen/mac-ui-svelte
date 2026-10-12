@@ -1,0 +1,20 @@
+@import './lib/styles/theme.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--md-font-family);
+  color: var(--md-color-text);
+  background-color: var(--md-color-bg-secondary);
+  -webkit-font-smoothing: antialiased;
+}

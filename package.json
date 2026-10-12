@@ -1,0 +1,59 @@
+{
+  "name": "@humuchen/mac-ui-svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "macOS 风格 Svelte 5 组件库（mac-ui 的 Svelte 迁移版）",
+  "license": "MIT",
+  "author": "huyang",
+  "keywords": [
+    "svelte",
+    "component-library",
+    "mac-ui",
+    "macos"
+  ],
+  "main": "./dist/lib/@humuchen/mac-ui-svelte.js",
+  "module": "./dist/lib/@humuchen/mac-ui-svelte.js",
+  "types": "./dist/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/@humuchen/mac-ui-svelte.js"
+    },
+    "./styles/*": "./dist/lib/styles/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "vite build --config vite.lib.config.ts",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "convert-theme": "node scripts/convert-theme.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/svelte": "^5.2.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/node": "^25.0.0",
+    "jsdom": "^29.0.0",
+    "svelte": "^5.57.2",
+    "svelte-check": "^4.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0",
+    "vitest": "^4.0.0"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
