@@ -29,7 +29,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsc --project tsconfig.build.json && vite build --config vite.lib.config.ts",
     "build:types": "tsc --project tsconfig.build.json",
     "build:lib": "vite build --config vite.lib.config.ts",
     "preview": "vite preview",
