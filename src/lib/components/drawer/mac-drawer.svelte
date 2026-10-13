@@ -118,9 +118,10 @@
       document.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
       emit('mac-drawer-open')
-      // 下一帧加入 open/visible 类以触发过渡动画
+      // 下一帧加入 open/visible 类以触发过渡动画；需守卫 open，
+      // 避免“打开动画帧迟到”在抽屉已被关闭后仍把 .open 类加回（回弹 bug）。
       requestAnimationFrame(() => {
-        isVisible = true
+        if (open) isVisible = true
       })
       pendingTimers.push(setTimeout(() => emit('mac-drawer-after-open'), 300))
     } else if (!o && opened) {
