@@ -1,6 +1,6 @@
 {
   "name": "@humuchen/mac-ui-svelte",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "macOS 风格 Svelte 5 组件库（mac-ui 的 Svelte版）",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "svelte",
     "component-library",
     "mac-ui",
+    "mac-ui-svelte",
     "macos"
   ],
   "main": "./dist/lib/@humuchen/mac-ui-svelte.cjs.js",
@@ -63,7 +64,7 @@
     "@storybook/web-components-vite": "^8.6.14"
   },
   "peerDependencies": {
-    "svelte": "^5.0.0"
+    "svelte": "^5.57.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

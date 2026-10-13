@@ -13,5 +13,13 @@
     "rootDir": "./src"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "dist", "src/**/*.test.ts", "src/**/*.spec.ts"]
+  // story 文件仅服务于 Storybook 文档站，不属于发布产物：
+  // 排除出库构建的类型检查与声明输出（否则 dist/types 会混入 *.stories.d.ts）
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.stories.ts"
+  ]
 }
