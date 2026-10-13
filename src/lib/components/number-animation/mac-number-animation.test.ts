@@ -31,32 +31,52 @@ describe('MacNumberAnimation（Svelte 版）', () => {
     expect(container.querySelector<HTMLElement>('.suffix')?.textContent).toBe('元')
   })
 
-  it('autoplay 动画完成后显示目标值并派发 start / finish 事件', async () => {
-    let startDetail: unknown
-    let finishDetail: unknown
-    const offStart = (() => {
-      const l = (e: Event) => (startDetail = (e as CustomEvent).detail)
-      document.addEventListener('mac-number-animation-start', l)
-      return () => document.removeEventListener('mac-number-animation-start', l)
-    })()
-    const offFinish = (() => {
-      const l = (e: Event) => (finishDetail = (e as CustomEvent).detail)
-      document.addEventListener('mac-number-animation-finish', l)
-      return () => document.removeEventListener('mac-number-animation-finish', l)
-    })()
+  it(
+    'autoplay 动画完成后显示目标值并派发 start / finish 事件',
+    async () => {
+      let container: HTMLElement
+      let resolveStart: (v: unknown) => void
+      let resolveFinish: (v: unknown) => void
+      const startP = new Promise<unknown>((res) => (resolveStart = res))
+      const finishP = new Promise<unknown>((res) => (resolveFinish = res))
 
-    const { container } = render(MacNumberAnimation, {
-      props: { from: 0, to: 100, duration: 0 },
-    })
-    await flush()
+      const offStart = (() => {
+        const l = (e: Event) => {
+          document.removeEventListener('mac-number-animation-start', l)
+          resolveStart((e as CustomEvent).detail)
+        }
+        document.addEventListener('mac-number-animation-start', l)
+        return () => document.removeEventListener('mac-number-animation-start', l)
+      })()
+      const offFinish = (() => {
+        const l = (e: Event) => {
+          document.removeEventListener('mac-number-animation-finish', l)
+          resolveFinish((e as CustomEvent).detail)
+        }
+        document.addEventListener('mac-number-animation-finish', l)
+        return () => document.removeEventListener('mac-number-animation-finish', l)
+      })()
 
-    expect(startDetail).toEqual({ from: 0, to: 100 })
-    expect(finishDetail).toEqual({ value: 100 })
-    expect((container.querySelector<HTMLElement>('.value') as HTMLElement).textContent).toBe('100')
+      // 先挂载组件（autoplay 会经 rAF 触发 start / finish），再等待事件本身，
+      // 避免固定延时在高负载并行运行时不足以让 rAF 回调完成。
+      const r = render(MacNumberAnimation, {
+        props: { from: 0, to: 100, duration: 0 },
+      })
+      container = r.container
 
-    offStart()
-    offFinish()
-  })
+      const [startDetail, finishDetail] = await Promise.all([startP, finishP])
+      // 等待 Svelte 将 displayValue 应用到 DOM
+      await flush()
+
+      expect(startDetail).toEqual({ from: 0, to: 100 })
+      expect(finishDetail).toEqual({ value: 100 })
+      expect((container.querySelector<HTMLElement>('.value') as HTMLElement).textContent).toBe('100')
+
+      offStart()
+      offFinish()
+    },
+    15000,
+  )
 
   it('动画完成时调用 onFinish 回调', async () => {
     const onFinish = vi.fn()
