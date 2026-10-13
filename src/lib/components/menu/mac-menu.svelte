@@ -188,8 +188,11 @@
 </div>
 
 <style>
+  /* 根元素不生成布局盒：portal 为 position: fixed（相对视口定位），
+     且 --md-menu-* 自定义属性经 DOM 树继承生效，display: contents 均不受影响。
+     注意：不可用 display: none，否则会连带隐藏内部的 .mac-menu-portal。 */
   .mac-menu {
-    display: none;
+    display: contents;
   }
 
   /* 菜单专属变量（仅定义 theme.css 中不存在的变量） */
