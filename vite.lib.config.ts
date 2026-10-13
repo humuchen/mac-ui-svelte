@@ -50,7 +50,7 @@ export default defineConfig({
       entry: fileURLToPath(new URL('./src/lib/index.ts', import.meta.url)),
       name: 'MacUISvelte',
       formats: ['es', 'cjs', 'umd'],
-      fileName: (format: 'es|cjs|umd') => `mac-ui.${format}.js`,
+      fileName: (format: string) => `mac-ui-svelte.${format}.js`,
     },
     rollupOptions: {
       // 组件编译产物会引入 svelte/internal/client、svelte/internal/disclose-version 等子路径，

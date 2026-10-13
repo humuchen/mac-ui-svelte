@@ -1,5 +1,5 @@
 // mac-ui-svelte 统一导出（与 Lit 版 mac-ui.ts 对应）
-// 37 个组件 + 类型 + 工具函数
+// 45 个组件 + 类型 + 工具函数（基础 6 / 表单 13 / 数据展示 9 / 反馈浮层 7 / 布局其他 10）
 // 注意：组件的公共类型统一收敛在各组件目录的 *-types.ts 中，
 // 纯 tsc（build:types）无法读取 .svelte 内部类型，禁止从 .svelte re-export 类型。
 
