@@ -24,6 +24,11 @@ const meta = {
     max: 10,
     step: 1,
     placeholder: '请输入数字',
+    disabled: false,
+    readonly: false,
+    showButton: true,
+    clearable: false,
+    keyboard: true,
   },
   argTypes: {
     value: { control: 'number', description: '输入框的值（受控）' },

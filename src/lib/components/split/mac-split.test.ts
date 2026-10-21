@@ -47,6 +47,19 @@ describe('MacSplit（Svelte 版）', () => {
     document.removeEventListener('mac-split-drag-start', handler)
   })
 
+  it('disabled 时渲染禁用视觉态（data-disabled / disabled class）', () => {
+    const { container } = render(MacSplit, { props: { disabled: true } })
+    const root = getRoot(container)
+    // 命中样式表 .mac-split[data-disabled] .resizer 与 .mac-split.disabled .resizer
+    expect(root.hasAttribute('data-disabled')).toBe(true)
+    expect(root.classList.contains('disabled')).toBe(true)
+    // 未禁用时不渲染禁用态
+    const { container: container2 } = render(MacSplit, { props: {} })
+    const root2 = getRoot(container2)
+    expect(root2.hasAttribute('data-disabled')).toBe(false)
+    expect(root2.classList.contains('disabled')).toBe(false)
+  })
+
   it('拖拽流程派发 drag-start / change / drag-end', async () => {
     const { container } = render(MacSplit, { props: { unit: 'pixel', min: 0, max: 0 } })
     const startHandler = vi.fn()

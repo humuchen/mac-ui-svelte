@@ -16,6 +16,7 @@ const meta = {
     children: longText,
     lineClamp: 3,
     expandTrigger: 'none',
+    expanded: false,
     tooltip: false,
     style: 'max-width: 480px',
   },

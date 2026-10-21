@@ -16,11 +16,16 @@ const meta = {
   args: {
     options,
     defaultValue: 'apple',
+    name: '',
+    disabled: false,
   },
   argTypes: {
     value: { control: 'text', description: '组的值（受控）' },
     defaultValue: { control: 'text', description: '默认值（非受控）' },
-    name: { control: 'text', description: '单选按钮 name 属性' },
+    name: {
+      control: 'text',
+      description: '单选按钮 name 属性（Svelte 版为自定义 DOM，无原生 input 承载，仅保留 API 兼容）',
+    },
     size: {
       control: 'inline-radio',
       options: ['sm', 'md', 'lg'],

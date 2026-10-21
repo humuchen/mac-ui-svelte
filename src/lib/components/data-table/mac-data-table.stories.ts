@@ -76,6 +76,12 @@ const meta = {
   args: {
     columns: basicColumns,
     data: basicData,
+    pagination: true,
+    remote: false,
+    bordered: false,
+    striped: false,
+    sticky: false,
+    loading: false,
     emptyText: '暂无数据',
   },
   argTypes: {

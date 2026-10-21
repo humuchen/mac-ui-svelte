@@ -7,6 +7,8 @@ const meta = {
   tags: ['autodocs'],
   args: {
     variant: 'primary',
+    disabled: false,
+    loading: false,
     children: '按钮',
   },
   argTypes: {

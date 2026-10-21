@@ -22,6 +22,12 @@ const meta = {
   args: {
     open: false,
     title: '抽屉标题',
+    width: '360px',
+    height: '360px',
+    closable: true,
+    maskClosable: true,
+    closeOnEsc: true,
+    resizable: false,
     children: '这是抽屉的内容。',
   },
   argTypes: {

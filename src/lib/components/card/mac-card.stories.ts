@@ -7,6 +7,9 @@ const meta = {
   tags: ['autodocs'],
   args: {
     variant: 'default',
+    hoverable: false,
+    clickable: false,
+    loading: false,
     children: '卡片的主体内容，用于承载文本、列表或其他任意元素。',
   },
   argTypes: {

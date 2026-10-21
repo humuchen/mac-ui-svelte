@@ -9,7 +9,11 @@ const meta = {
   tags: ['autodocs'],
   args: {
     defaultValue: ['设计', '开发', '测试'],
+    disabled: false,
+    round: false,
+    bordered: true,
     closable: true,
+    inputPlaceholder: '',
   },
   argTypes: {
     value: { control: false, description: '标签值数组（受控）' },

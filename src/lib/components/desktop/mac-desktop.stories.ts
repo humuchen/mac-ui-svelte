@@ -68,6 +68,10 @@ const meta = {
     showDock: true,
   },
   argTypes: {
+    icons: {
+      control: 'object',
+      description: '图标数据（DesktopIconData 数组，结构为 { id, label, color?, iconSrc? }）',
+    },
     layout: {
       control: 'inline-radio',
       options: ['vertical', 'horizontal'],

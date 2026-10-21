@@ -29,6 +29,13 @@ const meta = {
     visible: false,
     title: '操作确认',
     content: '确定要执行当前操作吗？',
+    confirmText: '确认',
+    cancelText: '取消',
+    danger: false,
+    showIcon: true,
+    width: '420px',
+    maskClosable: true,
+    showDivider: true,
   },
   argTypes: {
     visible: { control: 'boolean', description: '对话框是否可见（受控属性）' },

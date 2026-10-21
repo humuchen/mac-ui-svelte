@@ -7,6 +7,7 @@
     type MacSize,
     type MacTheme,
   } from '../../internal/config.svelte'
+  import { useFormContext } from '../form/form-context.svelte'
 
   /**
    * @tag mac-input
@@ -101,6 +102,10 @@
   const resolvedSize = $derived(resolveSize(size, config))
   const resolvedTheme = $derived(resolveTheme(theme, config))
 
+  // 表单级禁用：位于 MacForm 内且 form.disabled=true 时，自身未显式启用也被禁用
+  const form = useFormContext()
+  const effectiveDisabled = $derived(disabled || (form?.disabled ?? false))
+
   let root: HTMLDivElement | undefined = $state()
   let inputEl: HTMLInputElement | undefined = $state()
   let hasFocus = $state(false)
@@ -111,9 +116,11 @@
   }
 
   const showClearButton = $derived(
-    clearable && !!value && !disabled && !readonly,
+    clearable && !!value && !effectiveDisabled && !readonly,
   )
-  const showToggle = $derived(showPasswordToggle && type === 'password' && !disabled)
+  const showToggle = $derived(
+    showPasswordToggle && type === 'password' && !effectiveDisabled,
+  )
   const showCounter = $derived(showCharCounter && !!maxLength)
   const charCount = $derived((value ?? '').length)
   const isNearLimit = $derived(!!maxLength && charCount > maxLength * 0.8)
@@ -175,7 +182,7 @@
       input-container--{resolvedSize}
       {error ? 'input-container--error' : ''}
       {success ? 'input-container--success' : ''}
-      {disabled ? 'input-container--disabled' : ''}
+      {effectiveDisabled ? 'input-container--disabled' : ''}
       {loading ? 'input-container--loading' : ''}"
   >
     {#if prefix}<span class="slot-side">{@render prefix()}</span>{/if}
@@ -186,7 +193,7 @@
       type={inputType}
       placeholder={floating ? ' ' : placeholder}
       bind:value
-      {disabled}
+      disabled={effectiveDisabled}
       {readonly}
       {required}
       maxlength={maxLength}

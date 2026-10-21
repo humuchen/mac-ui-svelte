@@ -12,6 +12,8 @@ const meta = {
     size: 'md',
     showText: true,
     processing: false,
+    strokeWidth: 6,
+    width: 120,
   },
   argTypes: {
     percentage: {

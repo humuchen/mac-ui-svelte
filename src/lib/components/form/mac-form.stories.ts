@@ -12,6 +12,7 @@ const meta = {
     showLabel: true,
     showFeedback: true,
     disabled: false,
+    size: 'md',
   },
   argTypes: {
     labelWidth: { control: 'text', description: '标签宽度（CSS 长度值）' },
@@ -44,17 +45,17 @@ export const Default: Story = {
       },
     },
   },
-  render: () => mountSvelte(FormDemo, {}),
+  render: (args) => mountSvelte(FormDemo, args),
 }
 
 export const Compact: Story = {
   parameters: {
     docs: { description: { story: '窄容器中的表单布局（max-width 420px）。' } },
   },
-  render: () => {
+  render: (args) => {
     const wrapper = document.createElement('div')
     wrapper.style.maxWidth = '420px'
-    wrapper.appendChild(mountSvelte(FormDemo, {}))
+    wrapper.appendChild(mountSvelte(FormDemo, args))
     return wrapper
   },
 }
@@ -75,7 +76,7 @@ export const InCard: Story = {
     title.style.margin = '0 0 16px'
     title.style.fontSize = '16px'
     card.appendChild(title)
-    card.appendChild(mountSvelte(FormDemo, {}))
+    card.appendChild(mountSvelte(FormDemo, args))
     return card
   },
 }

@@ -28,6 +28,7 @@ const meta = {
     rootMargin: '0px',
     threshold: 0,
     preview: false,
+    previewSrc: '',
   },
   argTypes: {
     src: { control: 'text', description: '图片源地址' },

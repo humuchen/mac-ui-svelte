@@ -46,6 +46,7 @@ const meta = {
   args: {
     items,
     visible: false,
+    value: '',
     x: 120,
     y: 120,
   },

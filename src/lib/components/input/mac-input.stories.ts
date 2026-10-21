@@ -21,6 +21,18 @@ const meta = {
   args: {
     value: '',
     placeholder: '请输入内容',
+    label: '',
+    required: false,
+    disabled: false,
+    readonly: false,
+    error: false,
+    success: false,
+    helperText: '',
+    clearable: false,
+    showPasswordToggle: false,
+    showCharCounter: false,
+    loading: false,
+    floating: false,
   },
   argTypes: {
     type: {

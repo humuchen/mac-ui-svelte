@@ -25,6 +25,8 @@ const meta = {
     items: deviceItems,
     column: 3,
     labelPlacement: 'left',
+    bordered: false,
+    title: '',
     separator: ':',
   },
   argTypes: {

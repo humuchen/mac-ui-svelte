@@ -152,6 +152,8 @@
   bind:this={root}
   {...rest}
   class="mac-scope mac-split"
+  class:disabled={disabled}
+  data-disabled={disabled || undefined}
   data-theme={resolvedTheme}
 >
   <div bind:this={splitEl} class="split split--{direction}">

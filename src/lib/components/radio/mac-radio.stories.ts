@@ -6,6 +6,11 @@ const meta = {
   title: '组件/Radio 单选框',
   tags: ['autodocs'],
   args: {
+    value: '',
+    checked: false,
+    defaultChecked: false,
+    disabled: false,
+    label: '',
     children: '单选选项',
   },
   argTypes: {
@@ -13,6 +18,7 @@ const meta = {
     checked: { control: 'boolean', description: '单选按钮是否选中（受控）' },
     defaultChecked: { control: 'boolean', description: '单选按钮默认是否选中（非受控）' },
     disabled: { control: 'boolean', description: '禁用单选按钮' },
+    label: { control: 'text', description: '单选按钮的标签文本（优先级低于 children）' },
     size: {
       control: 'inline-radio',
       options: ['sm', 'md', 'lg'],
