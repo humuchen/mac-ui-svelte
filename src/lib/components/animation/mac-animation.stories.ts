@@ -55,7 +55,6 @@ const meta = {
       description: '动画类型名称（内置 27 种，或通过 registerAnimation 注册的自定义动画）',
     },
     duration: { control: 'text', description: "动画时长，如 '1s' / '500ms'" },
-    delay: { control: 'text', description: "延迟时间，如 '0.5s'" },
     iterationCount: { control: 'text', description: "重复次数：数字或 'infinite'" },
     direction: {
       control: 'select',
@@ -71,11 +70,20 @@ const meta = {
       control: 'text',
       description: "缓动函数，如 ease / linear / cubic-bezier(0.4, 0, 0.2, 1)",
     },
-    paused: { control: 'boolean', description: '是否暂停动画' },
+    paused: {
+      control: 'boolean',
+      description:
+        '是否暂停动画。注意：fadeIn / zoomIn 等透明型动画暂停时停在初始帧（opacity: 0），元素不可见属预期行为',
+    },
     block: { control: 'boolean', description: '是否以块级元素渲染（默认 inline-block）' },
     autoClear: {
       control: 'boolean',
       description: '动画结束后是否自动移除动画样式（保留终态，便于反复触发）',
+    },
+    delay: {
+      control: 'text',
+      description:
+        "延迟时间，如 '0.5s'。fillMode=both 时延迟期间显示初始帧（fadeIn 类动画为透明）",
     },
   },
 } satisfies Meta
@@ -132,7 +140,16 @@ export const InfiniteLoop: Story = {
 }
 
 export const EntranceAnimations: Story = {
-  render: () =>
+  args: {
+    duration: '2.4s',
+    iterationCount: 'infinite',
+    direction: 'alternate',
+  },
+  argTypes: {
+    type: { control: false, description: '画廊中每个单元格使用各自的动画类型，此控件不适用' },
+    delay: { control: false, description: '画廊内按单元格顺序错开延迟，形成波浪播放效果' },
+  },
+  render: (args) =>
     animationGallery(
       [
         'fadeIn',
@@ -149,12 +166,29 @@ export const EntranceAnimations: Story = {
         'rollIn',
         'lightSpeedIn',
       ],
-      { duration: '2.4s', iterationCount: 'infinite', direction: 'alternate' },
+      {
+        duration: args.duration,
+        iterationCount: args.iterationCount,
+        direction: args.direction,
+        fillMode: args.fillMode,
+        timingFunction: args.timingFunction,
+        paused: args.paused,
+        block: args.block,
+        autoClear: args.autoClear,
+      },
     ),
 }
 
 export const AttentionGrabbers: Story = {
-  render: () =>
+  args: {
+    duration: '1.4s',
+    iterationCount: 'infinite',
+  },
+  argTypes: {
+    type: { control: false, description: '画廊中每个单元格使用各自的动画类型，此控件不适用' },
+    delay: { control: false, description: '画廊内按单元格顺序错开延迟，形成波浪播放效果' },
+  },
+  render: (args) =>
     animationGallery(
       [
         'bounce',
@@ -168,7 +202,16 @@ export const AttentionGrabbers: Story = {
         'tada',
         'heartBeat',
       ],
-      { duration: '1.4s', iterationCount: 'infinite' },
+      {
+        duration: args.duration,
+        iterationCount: args.iterationCount,
+        direction: args.direction,
+        fillMode: args.fillMode,
+        timingFunction: args.timingFunction,
+        paused: args.paused,
+        block: args.block,
+        autoClear: args.autoClear,
+      },
     ),
 }
 

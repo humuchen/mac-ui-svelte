@@ -136,6 +136,10 @@ export const Sortable: Story = {
 
 /** 行选择：checkbox 多选与 radio 单选并排展示。 */
 export const Selection: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -208,6 +212,10 @@ export const Pagination: Story = {
 
 /** 状态：加载中 / 空数据 / 斑马纹边框 并排展示。 */
 export const States: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

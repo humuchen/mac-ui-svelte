@@ -56,6 +56,10 @@ export const Text: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

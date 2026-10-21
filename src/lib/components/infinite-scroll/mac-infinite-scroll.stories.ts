@@ -99,6 +99,10 @@ export const Finished: Story = {
 }
 
 export const CustomIndicators: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () =>
     scrollHost(
       mountSvelte(MacInfiniteScroll, {

@@ -87,6 +87,10 @@ export const Default: Story = {
 }
 
 export const Variants: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -105,6 +109,10 @@ export const Variants: Story = {
 }
 
 export const Sizes: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -120,6 +128,10 @@ export const Sizes: Story = {
 }
 
 export const States: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -140,6 +152,10 @@ export const States: Story = {
 }
 
 export const Features: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

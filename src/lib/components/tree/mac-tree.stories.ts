@@ -87,6 +87,10 @@ export const Basic: Story = {
 
 /** 默认展开：defaultExpandedKeys 与 defaultExpandAll 并排展示。 */
 export const DefaultExpanded: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -144,6 +148,10 @@ export const MultipleAndLine: Story = {
 
 /** 禁用节点与空数据：disabled 节点不可交互，data 为空时展示空文本。 */
 export const DisabledAndEmpty: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

@@ -55,6 +55,10 @@ export const Line: Story = {
 }
 
 export const Statuses: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -74,6 +78,10 @@ export const Statuses: Story = {
 }
 
 export const Circle: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -102,6 +110,10 @@ export const Circle: Story = {
 }
 
 export const MultiCircle: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () =>
     mountSvelte(MacProgress, {
       type: 'circle',
@@ -115,6 +127,10 @@ export const MultiCircle: Story = {
 }
 
 export const GradientAndProcessing: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

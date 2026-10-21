@@ -100,6 +100,10 @@ export const Danger: Story = {
 }
 
 export const Placements: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.cssText = 'display:flex;gap:24px;flex-wrap:wrap;align-items:center;padding:56px 0;'

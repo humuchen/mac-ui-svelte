@@ -100,6 +100,10 @@ export const WithHeader: Story = {
 
 /** 标签对齐方式并排展示：left / center / right（边框样式下效果明显）。 */
 export const LabelAlign: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

@@ -54,6 +54,10 @@ export const Basic: Story = {
 
 /** 行数控制：1 / 2 / 3 / 5 行并排展示。 */
 export const LineClamp: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -88,6 +92,10 @@ export const ClickToExpand: Story = {
 
 /** 悬停提示：tooltip 为 true 时截断文本悬停显示完整内容；右侧为自定义提示内容。 */
 export const Tooltip: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'

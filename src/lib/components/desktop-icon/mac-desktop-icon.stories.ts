@@ -101,6 +101,8 @@ export const Default: Story = {
 
 export const Colors: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: { description: { story: '不同颜色的占位图标。' } },
   },
   render: () =>
@@ -115,6 +117,8 @@ export const Colors: Story = {
 
 export const WithImage: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: {
       description: { story: '通过默认 slot 传入自定义图片内容（data URI SVG）。' },
     },
@@ -124,6 +128,8 @@ export const WithImage: Story = {
 
 export const Selected: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: { description: { story: '选中状态对比（左：选中；右：未选中）。' } },
   },
   render: () =>
@@ -135,6 +141,8 @@ export const Selected: Story = {
 
 export const Dragging: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: { description: { story: '拖拽状态对比（左：拖拽中；右：未选中）。' } },
   },
   render: () =>

@@ -86,6 +86,10 @@ export const Resizable: Story = {
 }
 
 export const WithTrigger: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     const button = document.createElement('button')

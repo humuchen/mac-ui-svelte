@@ -80,6 +80,8 @@ export const WithPlaceholder: Story = {
 
 export const CustomPlaceholder: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: {
       description: { story: '通过 placeholderSnippet 自定义加载占位内容。' },
     },
@@ -99,6 +101,8 @@ export const CustomPlaceholder: Story = {
 
 export const ErrorState: Story = {
   parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
     docs: {
       description: {
         story: '加载失败时显示错误占位（此处 src 故意指向不存在的图片），并通过 errorSnippet 自定义错误内容。',

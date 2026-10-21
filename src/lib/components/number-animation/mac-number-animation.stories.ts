@@ -53,6 +53,10 @@ export const Basic: Story = {
 
 /** 精度与千分位：两位小数 + 逗号分隔；右侧 autoplay 为 false 时直接显示目标值。 */
 export const Formatted: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -100,6 +104,10 @@ export const Formatted: Story = {
 
 /** 前后缀：prefix/suffix 文本属性与 prefixSnippet/suffixSnippet 插槽并排展示。 */
 export const PrefixSuffix: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -150,6 +158,10 @@ export const PrefixSuffix: Story = {
 
 /** 缓动函数：linear / easeIn / easeOut / easeInOut 并排对比。 */
 export const Easings: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
@@ -182,6 +194,10 @@ export const Easings: Story = {
 
 /** 尺寸：sm / md / lg 并排展示。 */
 export const Sizes: Story = {
+  parameters: {
+    // 画廊类 story：render 内硬编码展示属性，不消费 args，隐藏无效控件
+    controls: { disable: true },
+  },
   render: () => {
     const host = document.createElement('div')
     host.style.display = 'flex'
