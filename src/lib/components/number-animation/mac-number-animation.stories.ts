@@ -13,6 +13,8 @@ const meta = {
     separator: '',
     easing: 'easeOut',
     autoplay: true,
+    prefix: '',
+    suffix: '',
   },
   argTypes: {
     from: { control: 'number', description: '起始值' },

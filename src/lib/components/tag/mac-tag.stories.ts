@@ -7,6 +7,10 @@ const meta = {
   tags: ['autodocs'],
   args: {
     type: 'primary',
+    closable: false,
+    round: false,
+    bordered: true,
+    disabled: false,
     children: '标签',
   },
   argTypes: {

@@ -20,6 +20,11 @@ const meta = {
   tags: ['autodocs'],
   args: {
     value: 'agree',
+    checked: false,
+    defaultChecked: false,
+    indeterminate: false,
+    disabled: false,
+    label: '',
     children: '记住登录状态',
   },
   argTypes: {

@@ -7,6 +7,7 @@ const meta = {
   tags: ['autodocs'],
   args: {
     value: 'a',
+    disabled: false,
     items: [
       { value: 'a', label: '苹果' },
       { value: 'b', label: '香蕉' },

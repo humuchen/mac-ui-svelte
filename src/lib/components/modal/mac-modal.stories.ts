@@ -21,6 +21,13 @@ const meta = {
     y: 100,
     width: 480,
     height: 360,
+    active: true,
+    draggable: true,
+    resizable: true,
+    showButtons: true,
+    showFooter: true,
+    minimized: false,
+    maximized: false,
   },
   argTypes: {
     title: { control: 'text', description: '模态框标题' },

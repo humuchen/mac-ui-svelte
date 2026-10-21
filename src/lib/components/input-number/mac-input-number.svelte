@@ -7,6 +7,7 @@
     type MacSize,
     type MacTheme,
   } from '../../internal/config.svelte'
+  import { useFormContext } from '../form/form-context.svelte'
 
   /**
    * @tag mac-input-number
@@ -96,6 +97,10 @@
   const resolvedSize = $derived(resolveSize(size, config))
   const resolvedTheme = $derived(resolveTheme(theme, config))
 
+  // 表单级禁用：位于 MacForm 内且 form.disabled=true 时，自身未显式启用也被禁用
+  const form = useFormContext()
+  const effectiveDisabled = $derived(disabled || (form?.disabled ?? false))
+
   let root: HTMLDivElement | undefined = $state()
   let inputEl: HTMLInputElement | undefined = $state()
   let displayValue = $state('')
@@ -144,7 +149,7 @@
   }
 
   function stepValue(direction: number) {
-    if (disabled || readonly) return
+    if (effectiveDisabled || readonly) return
     const current = value ?? 0
     const newVal = clampAndRound(current + direction * step)
     setValue(newVal)
@@ -197,7 +202,7 @@
   }
 
   function handleKeydown(e: KeyboardEvent) {
-    if (!keyboard || disabled || readonly) return
+    if (!keyboard || effectiveDisabled || readonly) return
 
     switch (e.key) {
       case 'ArrowUp':
@@ -253,9 +258,9 @@
     inputEl?.blur()
   }
 
-  const isPlusDisabled = $derived(disabled || (max !== undefined && (value ?? 0) >= max))
-  const isMinusDisabled = $derived(disabled || (min !== undefined && (value ?? 0) <= min))
-  const showClearButton = $derived(clearable && value !== undefined && !disabled)
+  const isPlusDisabled = $derived(effectiveDisabled || (max !== undefined && (value ?? 0) >= max))
+  const isMinusDisabled = $derived(effectiveDisabled || (min !== undefined && (value ?? 0) <= min))
+  const showClearButton = $derived(clearable && value !== undefined && !effectiveDisabled)
 </script>
 
 <div
@@ -272,7 +277,7 @@
       {status === 'error' ? 'input-container--error' : ''}
       {status === 'success' ? 'input-container--success' : ''}
       {status === 'warning' ? 'input-container--warning' : ''}
-      {disabled ? 'input-container--disabled' : ''}"
+      {effectiveDisabled ? 'input-container--disabled' : ''}"
   >
     {#if prefix}<span class="slot-side">{@render prefix()}</span>{/if}
     <input
@@ -283,7 +288,7 @@
       inputmode="decimal"
       {placeholder}
       value={displayValue}
-      {disabled}
+      disabled={effectiveDisabled}
       {readonly}
       {name}
       oninput={handleInput}

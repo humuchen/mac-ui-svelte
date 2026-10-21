@@ -18,6 +18,11 @@ const meta = {
   tags: ['autodocs'],
   args: {
     hasMore: true,
+    loading: false,
+    error: false,
+    threshold: 100,
+    immediateCheck: true,
+    disabled: false,
     children: '列表内容',
   },
   argTypes: {

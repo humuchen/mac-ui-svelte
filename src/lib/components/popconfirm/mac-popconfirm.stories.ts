@@ -21,6 +21,12 @@ const meta = {
     description: '删除后无法恢复，确定继续吗？',
     children: triggerBtn('删除'),
     trigger: 'click',
+    confirmText: '确认',
+    cancelText: '取消',
+    danger: false,
+    showIcon: true,
+    disabled: false,
+    width: '240px',
   },
   argTypes: {
     title: { control: 'text', description: '确认标题文本' },
@@ -32,7 +38,6 @@ const meta = {
     placement: {
       control: 'select',
       options: [
-        undefined,
         'top',
         'top-start',
         'top-end',

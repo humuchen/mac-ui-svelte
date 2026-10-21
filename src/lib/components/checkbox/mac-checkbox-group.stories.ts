@@ -25,12 +25,17 @@ const meta = {
   args: {
     options,
     defaultValue: ['apple'],
+    name: '',
+    disabled: false,
     direction: 'horizontal',
   },
   argTypes: {
     value: { control: 'object', description: '组的值（受控模式）' },
     defaultValue: { control: 'object', description: '默认值（非受控模式）' },
-    name: { control: 'text', description: '复选框的 name 属性' },
+    name: {
+      control: 'text',
+      description: '复选框的 name 属性（Svelte 版为自定义 DOM，无原生 input 承载，仅保留 API 兼容）',
+    },
     size: {
       control: 'inline-radio',
       options: ['sm', 'md', 'lg'],

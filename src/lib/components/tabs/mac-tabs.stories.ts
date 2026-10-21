@@ -8,6 +8,7 @@ const meta = {
   args: {
     type: 'line',
     defaultValue: 'a',
+    value: '',
     closable: false,
     addable: false,
     animated: true,
@@ -24,6 +25,10 @@ const meta = {
       control: 'select',
       options: ['line', 'card', 'segment'],
       description: '标签类型：line 下划线指示器 / card 卡片标签 / segment 分段控制器',
+    },
+    items: {
+      control: 'object',
+      description: '标签项数据（TabItem 数组，结构为 { key, label, disabled? }）',
     },
     size: {
       control: 'inline-radio',

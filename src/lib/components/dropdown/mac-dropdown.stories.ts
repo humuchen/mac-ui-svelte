@@ -63,6 +63,10 @@ const meta = {
   args: {
     items,
     placement: 'bottom-start',
+    value: '',
+    disabled: false,
+    openOnHover: false,
+    hoverDelay: 150,
     trigger: 'click',
   },
   argTypes: {

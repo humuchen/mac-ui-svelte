@@ -8,6 +8,9 @@ const meta = {
   args: {
     type: 'primary',
     title: '系统提示',
+    bordered: true,
+    showIcon: true,
+    closable: false,
     children: '这是一条提示信息，用于向用户传达重要内容。',
   },
   argTypes: {

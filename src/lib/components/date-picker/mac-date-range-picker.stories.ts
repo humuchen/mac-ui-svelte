@@ -8,11 +8,19 @@ const meta = {
   args: {
     format: 'YYYY-MM-DD',
     placeholder: 'Select range',
+    disabled: false,
+    clearable: false,
+    error: false,
+    success: false,
   },
   argTypes: {
     value: { control: false, description: '选中的范围 [start, end]（受控）' },
     defaultValue: { control: false, description: '默认范围（非受控）' },
-    format: { control: 'text', description: '日期格式' },
+    format: {
+      control: 'text',
+      description:
+        '日期格式。注意：仅用于将 value 解析为面板日期，触发器直接回显 value 原始字符串，不改变显示格式',
+    },
     placeholder: { control: 'text', description: '占位符' },
     disabled: { control: 'boolean', description: '禁用选择器' },
     size: {

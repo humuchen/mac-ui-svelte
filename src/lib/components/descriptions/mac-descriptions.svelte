@@ -130,11 +130,15 @@
       </table>
     {:else if labelPlacement === 'left'}
       <div class="left-list">
-        {#each items as item}
-          <div class="left-item">
-            <div class="left-label" style={item.labelStyle || ''}>{item.label}</div>
-            <span class="left-separator">{separator}</span>
-            <div class="left-value" style={item.contentStyle || ''}>{item.value}</div>
+        {#each rows as row}
+          <div class="left-row" style="grid-template-columns: repeat({column}, minmax(0, 1fr))">
+            {#each row as { item, effectiveSpan }}
+              <div class="left-item" style="grid-column: span {effectiveSpan}">
+                <div class="left-label" style={item.labelStyle || ''}>{item.label}</div>
+                <span class="left-separator">{separator}</span>
+                <div class="left-value" style={item.contentStyle || ''}>{item.value}</div>
+              </div>
+            {/each}
           </div>
         {/each}
       </div>
@@ -273,14 +277,22 @@
     flex-direction: column;
   }
 
+  /* 行容器：按 column 分列（与 bordered / top 布局的列语义一致） */
+  .left-row {
+    display: grid;
+    column-gap: var(--md-spacing-lg);
+    align-items: start;
+  }
+
+  .left-row:not(:last-child) {
+    border-bottom: 0.5px solid var(--md-descriptions-row-border);
+  }
+
   .left-item {
     display: flex;
     align-items: baseline;
     padding: var(--md-descriptions-cell-padding);
-  }
-
-  .left-item:not(:last-child) {
-    border-bottom: 0.5px solid var(--md-descriptions-row-border);
+    min-width: 0;
   }
 
   .left-label {

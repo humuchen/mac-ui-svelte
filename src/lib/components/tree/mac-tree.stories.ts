@@ -38,6 +38,15 @@ const meta = {
   args: {
     data: treeData,
     emptyText: '暂无数据',
+    defaultExpandedKeys: [],
+    defaultSelectedKeys: [],
+    defaultCheckedKeys: [],
+    defaultExpandAll: false,
+    checkable: false,
+    multiple: false,
+    selectable: true,
+    showLine: false,
+    blockNode: true,
   },
   argTypes: {
     data: { control: 'object', description: '树形数据数组（key/label/children/disabled）' },

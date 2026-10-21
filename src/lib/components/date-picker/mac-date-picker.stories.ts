@@ -8,13 +8,24 @@ const meta = {
   tags: ['autodocs'],
   args: {
     value: '2026-01-15',
+    defaultValue: '',
     format: 'YYYY-MM-DD',
     placeholder: '选择日期',
+    disabled: false,
+    clearable: false,
+    error: false,
+    success: false,
+    panel: false,
+    showFooter: true,
   },
   argTypes: {
     value: { control: 'text', description: '选中的日期字符串（受控）' },
     defaultValue: { control: 'text', description: '默认日期字符串（非受控）' },
-    format: { control: 'text', description: '日期格式，如 YYYY-MM-DD HH:mm:ss' },
+    format: {
+      control: 'text',
+      description:
+        '日期格式（如 YYYY-MM-DD HH:mm:ss）。注意：仅用于将 value 解析为面板日期，触发器直接回显 value 原始字符串，不改变显示格式',
+    },
     placeholder: { control: 'text', description: '占位符' },
     disabled: { control: 'boolean', description: '禁用选择器' },
     size: {

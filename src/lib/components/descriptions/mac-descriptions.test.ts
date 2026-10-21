@@ -26,6 +26,31 @@ describe('MacDescriptions（Svelte 版）', () => {
     expect(root.querySelector<HTMLElement>('.left-value')!.textContent).toBe('MacBook Pro')
   })
 
+  it('left 无边框布局按 column 分列渲染', () => {
+    const { container } = render(MacDescriptions, {
+      props: { items, column: 2 },
+    })
+    const root = getRoot(container)
+    // 3 个条目按 2 列分块 → 2 行
+    const rows = root.querySelectorAll('.left-row')
+    expect(rows.length).toBe(2)
+    // 第一行 2 个条目，第二行 1 个
+    expect(rows[0].querySelectorAll('.left-item').length).toBe(2)
+    expect(rows[1].querySelectorAll('.left-item').length).toBe(1)
+    // 行容器携带列数网格
+    expect(rows[0].getAttribute('style')).toContain('repeat(2')
+  })
+
+  it('left 布局 span 跨列生效', () => {
+    const { container } = render(MacDescriptions, {
+      props: { items: [{ label: 'A', value: '1', span: 2 }, { label: 'B', value: '2' }], column: 2 },
+    })
+    // A 占 2 列独占一行，B 在第二行
+    const rows = container.querySelectorAll('.left-row')
+    expect(rows.length).toBe(2)
+    expect(rows[0].querySelector('.left-item')?.getAttribute('style')).toContain('span 2')
+  })
+
   it('属性绑定响应：labelPlacement=top 非边框网格布局', () => {
     const { container } = render(MacDescriptions, {
       props: { items, labelPlacement: 'top', column: 2 },
